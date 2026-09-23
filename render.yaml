@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: sfs-nexus-2k26
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: ADMIN_KEY
+        value: nexus2k26admin
