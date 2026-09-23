@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SFS NEXUS 2K26 – Student Feedback Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo-wrap">
+        <div class="logo-icon">⚡</div>
+        <div class="logo-text">
+          <span class="logo-main">SFS NEXUS</span>
+          <span class="logo-sub">2K26 · Tech Symposium</span>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Events</a>
+        <a href="#">Schedule</a>
+        <a href="#" class="nav-cta">Register Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO BANNER -->
+  <section class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="badge">📋 Official Feedback Portal</div>
+      <h1>Share Your <span class="gradient-text">Experience</span></h1>
+      <p class="hero-sub">We value every voice. Submit your feedback for SFS NEXUS 2K26 and help us shape the next generation of tech events.</p>
+      <div class="stats-row">
+        <div class="stat"><strong>2,400+</strong><span>Registrations</span></div>
+        <div class="stat"><strong>48</strong><span>Events</span></div>
+        <div class="stat"><strong>12</strong><span>Departments</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEEDBACK FORM -->
+  <section class="form-section">
+    <div class="form-card">
+      <div class="form-card-header">
+        <h2>Student Feedback Form</h2>
+        <p>Fill in your details to submit feedback. All fields are required.</p>
+      </div>
+
+      <form id="feedbackForm" autocomplete="off">
+
+        <div class="form-row two-col">
+          <div class="form-group">
+            <label for="fullName">Full Name <span class="req">*</span></label>
+            <input type="text" id="fullName" name="fullName" placeholder="e.g. Arun Kumar" required/>
+            <span class="input-icon">👤</span>
+          </div>
+          <div class="form-group">
+            <label for="rollNo">Roll Number <span class="req">*</span></label>
+            <input type="text" id="rollNo" name="rollNo" placeholder="e.g. 22CS042" required/>
+            <span class="input-icon">🎓</span>
+          </div>
+        </div>
+
+        <div class="form-row two-col">
+          <div class="form-group">
+            <label for="email">Email Address <span class="req">*</span></label>
+            <input type="email" id="email" name="email" placeholder="student@college.edu" required/>
+            <span class="input-icon">✉️</span>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number <span class="req">*</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="+91 9876543210" required/>
+            <span class="input-icon">📱</span>
+          </div>
+        </div>
+
+        <div class="form-row two-col">
+          <div class="form-group">
+            <label for="department">Department <span class="req">*</span></label>
+            <select id="department" name="department" required>
+              <option value="">Select Department</option>
+              <option>Computer Science & Engineering</option>
+              <option>Information Technology</option>
+              <option>Electronics & Communication</option>
+              <option>Mechanical Engineering</option>
+              <option>Civil Engineering</option>
+              <option>Electrical Engineering</option>
+              <option>MBA / MCA</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="year">Year of Study <span class="req">*</span></label>
+            <select id="year" name="year" required>
+              <option value="">Select Year</option>
+              <option>1st Year</option>
+              <option>2nd Year</option>
+              <option>3rd Year</option>
+              <option>4th Year</option>
+              <option>PG</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="password">Create Portal Password <span class="req">*</span></label>
+            <div class="password-wrap">
+              <input type="password" id="password" name="password" placeholder="Set a password for your profile" required minlength="6"/>
+              <button type="button" class="toggle-pw" onclick="togglePassword()">👁</button>
+            </div>
+            <p class="hint">This secures your feedback submission record.</p>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="event">Event Attended <span class="req">*</span></label>
+            <select id="event" name="event" required>
+              <option value="">Select Event</option>
+              <option>Web Security Bootcamp</option>
+              <option>AI & ML Workshop</option>
+              <option>Hackathon 2K26</option>
+              <option>Robo Wars</option>
+              <option>Paper Presentation</option>
+              <option>Quiz Competition</option>
+              <option>Cultural Night</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Overall Rating <span class="req">*</span></label>
+            <div class="star-rating" id="starRating">
+              <span data-val="1">★</span>
+              <span data-val="2">★</span>
+              <span data-val="3">★</span>
+              <span data-val="4">★</span>
+              <span data-val="5">★</span>
+            </div>
+            <input type="hidden" id="rating" name="rating" value="" required/>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="feedback">Your Feedback <span class="req">*</span></label>
+            <textarea id="feedback" name="feedback" rows="4" placeholder="Share your thoughts, suggestions, or experience..." required></textarea>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label class="checkbox-row">
+            <input type="checkbox" id="consent" required/>
+            <span>I agree to share my information with the SFS NEXUS organizing committee for improvement purposes.</span>
+          </label>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submitBtn">
+          <span id="btnText">Submit Feedback</span>
+          <span id="btnLoader" style="display:none">Submitting...</span>
+        </button>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- SUCCESS MODAL -->
+  <div class="modal-overlay" id="successModal">
+    <div class="modal-box">
+      <div class="modal-icon">✅</div>
+      <h3>Feedback Submitted!</h3>
+      <p>Thank you for participating in <strong>SFS NEXUS 2K26</strong>. Your feedback has been recorded successfully.</p>
+      <p class="modal-ref" id="refCode"></p>
+      <button onclick="closeModal()">Done</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 SFS NEXUS · All Rights Reserved · <a href="#">Privacy Policy</a> · <a href="#">Contact</a></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
